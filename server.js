@@ -4,10 +4,15 @@ const express = require("express");
 const path = require("path");
 const { SYSTEM_PROMPT, ANALYZER_PROMPT, containsDistressSignal, SAFE_FALLBACK_REPLY } = require("./persona");
 const fs = require("fs");
-const CHATS_FILE = path.join(__dirname, "chats.json");
+const os = require("os");
+const CHATS_FILE = process.env.VERCEL ? path.join(os.tmpdir(), "chats.json") : path.join(__dirname, "chats.json");
 
-if (!fs.existsSync(CHATS_FILE)) {
-  fs.writeFileSync(CHATS_FILE, JSON.stringify([]));
+try {
+  if (!fs.existsSync(CHATS_FILE)) {
+    fs.writeFileSync(CHATS_FILE, JSON.stringify([]));
+  }
+} catch (err) {
+  console.error("Failed to initialize chats file:", err);
 }
 const app = express();
 const PORT = process.env.PORT || 3000;
