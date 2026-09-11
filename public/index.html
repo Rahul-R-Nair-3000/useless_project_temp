@@ -321,7 +321,7 @@
                 class="uppercase transition-colors text-secondary border-b-2 border-secondary font-bold"
                 data-path="chat-arena"
                 href="#"
-              >
+              >CHAT ARENA</a>
             </nav>
             <div
               class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"
@@ -337,7 +337,7 @@
       <main class="relative pt-16 min-h-screen bg-surface-container-lowest">
         <div class="flex flex-col w-full">
           <div
-            class="w-full max-w-5xl mx-auto px-space-md lg:px-space-xl flex flex-col justify-between min-h-[calc(100vh-4rem)] pb-space-lg relative overflow-hidden"
+            class="w-full max-w-5xl mx-auto px-space-md lg:px-space-xl flex flex-col justify-between min-h-[calc(100vh-4rem)] pb-space-lg relative"
           >
             <!-- Background Texture Noise Overlay & Ambient Decals -->
             <div
@@ -665,13 +665,25 @@
               chatView.style.display = 'flex';
             }
 
-            // LocalStorage History
+            // Server-Side JSON History
             const historyNav = document.getElementById('history-nav');
             const historyCount = document.getElementById('history-count');
-            let sessions = JSON.parse(localStorage.getItem('pulu_sessions') || '[]');
+            let sessions = [];
             let currentSessionId = null;
+            
+            async function fetchSessions() {
+              try {
+                const res = await fetch('/api/sessions');
+                if (res.ok) {
+                  sessions = await res.json();
+                  renderHistory();
+                }
+              } catch (e) {
+                console.error('Failed to load history', e);
+              }
+            }
 
-            function saveSession(userMsg, puluMsg) {
+            async function saveSession(userMsg, puluMsg) {
               if (!currentSessionId) {
                 currentSessionId = Date.now().toString();
                 sessions.unshift({ id: currentSessionId, title: userMsg.substring(0, 30) + '...', date: new Date().toISOString(), messages: [] });
@@ -680,8 +692,17 @@
               if (session) {
                 session.messages.push({ role: 'user', content: userMsg });
                 session.messages.push({ role: 'pulu', content: puluMsg });
-                localStorage.setItem('pulu_sessions', JSON.stringify(sessions));
-                renderHistory();
+                
+                try {
+                  await fetch('/api/sessions', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(session)
+                  });
+                  renderHistory();
+                } catch (e) {
+                  console.error('Failed to save to server', e);
+                }
               }
             }
 
@@ -716,16 +737,20 @@
 
               // Handle delete
               document.querySelectorAll('.delete-btn').forEach(btn => {
-                btn.onclick = (e) => {
+                btn.onclick = async (e) => {
                   e.stopPropagation();
                   const id = e.target.getAttribute('data-id');
                   sessions = sessions.filter(s => s.id !== id);
-                  localStorage.setItem('pulu_sessions', JSON.stringify(sessions));
-                  if (currentSessionId === id) {
-                    currentSessionId = null;
-                    showHomeView();
+                  try {
+                    await fetch('/api/sessions/' + id, { method: 'DELETE' });
+                    if (currentSessionId === id) {
+                      currentSessionId = null;
+                      showHomeView();
+                    }
+                    renderHistory();
+                  } catch (e) {
+                    console.error('Delete failed', e);
                   }
-                  renderHistory();
                 };
               });
             }
@@ -743,7 +768,7 @@
             }
 
             // Initial render
-            renderHistory();
+            fetchSessions();
 
             function showHomeView() {
               currentSessionId = null;

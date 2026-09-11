@@ -3,7 +3,12 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const { SYSTEM_PROMPT, ANALYZER_PROMPT, containsDistressSignal, SAFE_FALLBACK_REPLY } = require("./persona");
+const fs = require("fs");
+const CHATS_FILE = path.join(__dirname, "chats.json");
 
+if (!fs.existsSync(CHATS_FILE)) {
+  fs.writeFileSync(CHATS_FILE, JSON.stringify([]));
+}
 const app = express();
 const PORT = process.env.PORT || 3000;
 const AI_API_KEY = process.env.AI_API_KEY;
@@ -17,7 +22,54 @@ if (!AI_API_KEY) {
 }
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "public"), {
+  setHeaders: (res, path) => {
+    if (path.endsWith('.html') || path.endsWith('.js') || path.endsWith('.css')) {
+      res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      res.setHeader('Pragma', 'no-cache');
+      res.setHeader('Expires', '0');
+    }
+  }
+}));
+
+// --- Chat History API ---
+app.get("/api/sessions", (req, res) => {
+  try {
+    const data = JSON.parse(fs.readFileSync(CHATS_FILE, "utf8"));
+    res.json(data);
+  } catch (e) {
+    res.json([]);
+  }
+});
+
+app.post("/api/sessions", (req, res) => {
+  try {
+    const { id, title, date, messages } = req.body;
+    const data = JSON.parse(fs.readFileSync(CHATS_FILE, "utf8"));
+    const existingIndex = data.findIndex(s => s.id === id);
+    if (existingIndex > -1) {
+      data[existingIndex] = { id, title, date, messages };
+    } else {
+      data.unshift({ id, title, date, messages });
+    }
+    fs.writeFileSync(CHATS_FILE, JSON.stringify(data, null, 2));
+    res.json({ success: true });
+  } catch (e) {
+    res.status(500).json({ error: "Failed to save session" });
+  }
+});
+
+app.delete("/api/sessions/:id", (req, res) => {
+  try {
+    const id = req.params.id;
+    let data = JSON.parse(fs.readFileSync(CHATS_FILE, "utf8"));
+    data = data.filter(s => s.id !== id);
+    fs.writeFileSync(CHATS_FILE, JSON.stringify(data, null, 2));
+    res.json({ success: true });
+  } catch (e) {
+    res.status(500).json({ error: "Failed to delete session" });
+  }
+});
 
 // --- very simple in-memory rate limiter (per IP) ---
 // Good enough for a one-day event demo. Not meant to survive a real deployment.
