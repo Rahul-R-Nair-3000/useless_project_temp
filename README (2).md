@@ -72,7 +72,7 @@ For Software:
 *Add caption explaining what this shows*
 
 # Diagrams
-![Workflow](Add your workflow/architecture diagram here)
+![Workflow][(Add your workflow/architecture diagram here)](https://github.com/Rahul-R-Nair-3000/useless_project_temp/blob/main/jalian_kanaran_roast_flow.png)
 *Add caption explaining your workflow*
 
 
