@@ -1,0 +1,1050 @@
+<!doctype html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @layer base {
+        html,
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        body {
+          overscroll-behavior: none;
+        }
+        main > :first-child {
+          margin-top: 0 !important;
+        }
+        main > :last-child {
+          margin-bottom: 0 !important;
+        }
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary": "#3d2f00",
+              "tertiary-fixed-dim": "#c6bfff",
+              "on-tertiary-fixed-variant": "#4029ba",
+              "inverse-on-surface": "#313032",
+              "surface-container-high": "#2a2a2c",
+              "surface-dim": "#131315",
+              "inverse-primary": "#ba1c00",
+              "surface-container-lowest": "#0e0e10",
+              "on-tertiary-container": "#23008d",
+              secondary: "#edc22e",
+              "on-tertiary-fixed": "#160066",
+              "on-error": "#690005",
+              "secondary-fixed-dim": "#edc22e",
+              "tertiary-fixed": "#e4dfff",
+              "on-primary-fixed-variant": "#8e1300",
+              "on-primary-container": "#590800",
+              "on-secondary-fixed-variant": "#574500",
+              "primary-fixed-dim": "#ffb4a5",
+              "secondary-container": "#cca400",
+              "surface-container-low": "#1b1b1d",
+              "surface-bright": "#39393b",
+              "surface-container-highest": "#353437",
+              surface: "#131315",
+              "on-primary-fixed": "#3e0400",
+              "surface-variant": "#353437",
+              tertiary: "#c6bfff",
+              "error-container": "#93000a",
+              "surface-container": "#201f21",
+              "surface-tint": "#ffb4a5",
+              background: "#131315",
+              "on-surface-variant": "#e5bdb6",
+              "tertiary-container": "#8c7fff",
+              "primary-container": "#ff5637",
+              "on-surface": "#e5e1e4",
+              error: "#ffb4ab",
+              primary: "#ffb4a5",
+              outline: "#ac8881",
+              "on-secondary-fixed": "#241a00",
+              "outline-variant": "#5c403a",
+              "on-background": "#e5e1e4",
+              "secondary-fixed": "#ffe089",
+              "primary-fixed": "#ffdad3",
+              "on-primary": "#650b00",
+              "on-secondary-container": "#4c3b00",
+              "on-tertiary": "#2900a0",
+              "on-error-container": "#ffdad6",
+              "inverse-surface": "#e5e1e4",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "space-sm": "0.5rem",
+              gutter: "1rem",
+              "space-xl": "2.5rem",
+              "space-md": "1rem",
+              "space-xs": "0.25rem",
+              "margin-tablet": "1.5rem",
+              "gutter-desktop": "1.5rem",
+              "space-lg": "1.5rem",
+              margin: "1rem",
+              "margin-desktop": "2.5rem",
+              "gutter-tablet": "1.25rem",
+            },
+            fontFamily: {
+              "display-hero": ["Anton"],
+              "headline-lg": ["Anton"],
+              "body-lg": ["Space Grotesk"],
+              "title-lg": ["Space Grotesk"],
+              "headline-md": ["Anton"],
+              "display-hero-mobile": ["Anton"],
+              "body-md": ["Space Grotesk"],
+              "headline-lg-mobile": ["Anton"],
+              "title-md": ["Space Grotesk"],
+              "label-sm": ["Space Grotesk"],
+              "label-lg": ["Space Grotesk"],
+            },
+            fontSize: {
+              "display-hero": [
+                "56px",
+                {
+                  lineHeight: "60px",
+                  letterSpacing: "0.04em",
+                  fontWeight: "400",
+                },
+              ],
+              "headline-lg": [
+                "36px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "0.03em",
+                  fontWeight: "400",
+                },
+              ],
+              "body-lg": [
+                "16px",
+                {
+                  lineHeight: "24px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "500",
+                },
+              ],
+              "title-lg": [
+                "20px",
+                {
+                  lineHeight: "26px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "28px",
+                  letterSpacing: "0.02em",
+                  fontWeight: "400",
+                },
+              ],
+              "display-hero-mobile": [
+                "40px",
+                {
+                  lineHeight: "44px",
+                  letterSpacing: "0.03em",
+                  fontWeight: "400",
+                },
+              ],
+              "body-md": [
+                "14px",
+                { lineHeight: "20px", letterSpacing: "0em", fontWeight: "400" },
+              ],
+              "headline-lg-mobile": [
+                "28px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "0.02em",
+                  fontWeight: "400",
+                },
+              ],
+              "title-md": [
+                "16px",
+                { lineHeight: "22px", letterSpacing: "0em", fontWeight: "700" },
+              ],
+              "label-sm": [
+                "11px",
+                {
+                  lineHeight: "14px",
+                  letterSpacing: "0.08em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-lg": [
+                "13px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-surface-container-lowest text-on-surface font-body-md text-body-md"
+  >
+    <aside
+      class="fixed left-0 top-0 h-full w-72 bg-surface-container-low z-50 flex flex-col justify-between p-space-md border-r-2 border-surface-container-high"
+    >
+      <div class="flex flex-col gap-space-md">
+        <div class="flex items-center justify-between">
+          <a
+            class="flex items-center gap-space-xs"
+            data-path="chat-arena"
+            href="#"
+            ><span
+              class="font-headline-md text-headline-md uppercase text-primary-container tracking-wider"
+              >Jalian കണാരൻ</span
+            ><span
+              class="bg-secondary text-on-secondary font-label-sm text-label-sm px-space-xs py-0.5 transform -rotate-2 shadow-[2px_2px_0px_#000000]"
+              >BOT</span
+            ></a
+          ><button
+            class="lg:hidden text-on-surface-variant hover:text-on-surface"
+          >
+            <span class="material-symbols-outlined text-[20px]">close</span>
+          </button>
+        </div>
+        <a
+          class="relative group block w-full bg-secondary text-on-secondary font-headline-md text-headline-md uppercase text-center py-space-sm px-space-md border-2 border-on-secondary shadow-[4px_4px_0px_0px_#000000] transform -rotate-1 hover:rotate-0 hover:translate-x-0.5 hover:translate-y-0.5 transition-all"
+          data-path="chat-arena"
+          href="#"
+          ><span class="flex items-center justify-center gap-space-xs"
+            ><span class="material-symbols-outlined text-[22px]"
+              >add_circle</span
+            >+ NEW ROAST</span
+          ><span
+            class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-primary-container border border-surface-container-lowest rotate-45"
+          ></span
+        ></a>
+        <div class="flex items-center justify-between pt-space-xs">
+          <span
+            class="font-label-lg text-label-lg uppercase tracking-wider text-outline"
+            >PAST ROASTS</span
+          ><span
+            id="history-count"
+            class="font-label-sm text-label-sm px-space-xs py-0.5 bg-surface-container-high text-outline rounded"
+            >0 SESSIONS</span
+          >
+        </div>
+        <nav
+          id="history-nav"
+          class="flex flex-col gap-space-xs overflow-y-auto max-h-[40vh]"
+          data-active-classes="bg-surface-container-high text-on-surface border-l-4 border-secondary"
+        >
+          <!-- Dynamic History rendered here -->
+        </nav>
+      </div>
+      <div
+        class="flex flex-col gap-space-xs pt-space-md border-t-2 border-surface-container-high"
+      >
+        <div
+          class="flex items-center justify-between p-space-xs bg-surface-container-lowest border border-surface-container-highest"
+        >
+          <div class="flex flex-col">
+            <span class="font-label-sm text-label-sm text-outline"
+              >ENGINE STATS</span
+            ><span class="font-label-lg text-label-lg text-on-surface"
+              >v0.69-alpha Manglish</span
+            >
+          </div>
+          <span
+            class="bg-error-container text-on-error-container font-label-sm text-label-sm px-space-xs py-0.5 uppercase"
+            >Troll Mode</span
+          >
+        </div>
+      </div>
+    </aside>
+    <div class="pl-0 lg:pl-72">
+      <header
+        class="fixed top-0 left-0 lg:left-72 right-0 h-16 bg-surface-container-lowest border-b-2 border-surface-container-high z-40 px-space-md"
+      >
+        <div class="h-16 w-full flex items-center justify-between">
+          <div class="flex items-center gap-space-sm">
+            <button
+              class="lg:hidden flex items-center justify-center p-space-xs bg-surface-container text-on-surface border border-surface-container-highest shadow-[2px_2px_0px_#000000]"
+            >
+              <span class="material-symbols-outlined text-[20px]"
+                >menu</span
+              ></button
+            ><span
+              class="bg-secondary text-on-secondary font-headline-md text-title-md px-space-sm py-1 uppercase tracking-wider transform -rotate-1 border border-on-secondary shadow-[3px_3px_0px_#000000]"
+              >USELESS PROJECTS TECH-FEST 2025</span
+            ><span
+              class="hidden md:inline-flex items-center gap-1.5 px-space-sm py-0.5 bg-surface-container text-error border border-error-container font-label-sm text-label-sm uppercase"
+              ><span
+                class="w-2 h-2 rounded-full bg-primary-container animate-ping"
+              ></span
+              >ONLINE &amp; JUDGING YOU</span
+            >
+          </div>
+          <div class="flex items-center gap-space-md">
+            <nav
+              class="hidden xl:flex items-center gap-space-lg"
+              data-active-classes="text-secondary border-b-2 border-secondary font-bold"
+            >
+              <a
+                aria-current="page"
+                class="uppercase transition-colors text-secondary border-b-2 border-secondary font-bold"
+                data-path="chat-arena"
+                href="#"
+              >
+            </nav>
+            <div
+              class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"
+            >
+              <span
+                class="material-symbols-outlined text-on-primary text-[18px]"
+                >person</span
+              >
+            </div>
+          </div>
+        </div>
+      </header>
+      <main class="relative pt-16 min-h-screen bg-surface-container-lowest">
+        <div class="flex flex-col w-full">
+          <div
+            class="w-full max-w-5xl mx-auto px-space-md lg:px-space-xl flex flex-col justify-between min-h-[calc(100vh-4rem)] pb-space-lg relative overflow-hidden"
+          >
+            <!-- Background Texture Noise Overlay & Ambient Decals -->
+            <div
+              class="absolute inset-0 pointer-events-none opacity-40 bg-[radial-gradient(#353437_1px,transparent_1px)] [background-size:16px_16px]"
+            ></div>
+            <div
+              class="absolute -top-12 -right-12 w-64 h-64 rounded-full bg-primary-container/10 blur-3xl pointer-events-none"
+            ></div>
+            <div
+              class="absolute top-1/2 -left-20 w-72 h-72 rounded-full bg-secondary/5 blur-3xl pointer-events-none"
+            ></div>
+            <!-- Top Status Ribbon (Tactile Tape Effect) -->
+            <div class="pt-space-md flex items-center justify-between z-10">
+              <div
+                class="inline-flex items-center gap-space-xs bg-surface-container-high px-space-md py-1 shadow-md -rotate-1"
+              >
+                <span
+                  class="w-2 h-2 rounded-full bg-primary-container animate-pulse"
+                ></span>
+                <span
+                  class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface"
+                  >SYS.STABLE // ZERO EMPATHY ACTIVE</span
+                >
+              </div>
+              <!-- Easter Egg Mode Switcher Button -->
+              <button
+                class="group flex items-center gap-space-xs bg-surface-container px-space-sm py-1 shadow-sm hover:shadow-md transition-all text-on-surface-variant hover:text-secondary hover:-rotate-1 cursor-pointer"
+                id="easter-egg-btn"
+              >
+                <span
+                  class="material-symbols-outlined text-[16px] group-hover:rotate-180 transition-transform duration-300"
+                  >bolt</span
+                >
+                <span
+                  class="font-label-sm text-label-sm uppercase tracking-widest"
+                  >SAVAGE MODE:
+                  <span class="text-secondary font-bold" id="savage-status"
+                    >100%</span
+                  ></span
+                >
+              </button>
+            </div>
+            <!-- Center Hero Section -->
+            <div
+              id="home-view"
+              class="flex-1 flex flex-col items-center justify-center my-space-lg z-10 text-center relative"
+            >
+              <!-- Floating Mascot Graphic Container with Animated Face -->
+              <div class="relative mb-space-lg group">
+                <!-- Masking Tape Backing Element -->
+                <div
+                  class="absolute -top-3 left-1/2 -translate-x-1/2 w-28 h-6 bg-secondary/30 backdrop-blur-sm -rotate-3 z-0 shadow-sm pointer-events-none"
+                ></div>
+                <!-- The Animated Mascot Canvas -->
+                <div class="relative w-44 h-64 sm:w-52 sm:h-80 z-10 flex items-center justify-center animate-[puluFloat_4s_ease-in-out_infinite] mt-8">
+                   <!-- Body Image -->
+                   <img src="images/media_1789147378927.png" class="absolute inset-0 w-full h-full object-contain z-10" alt="Pulu Body" />
+                   <!-- Head Image (Dynamic) -->
+                   <img id="pulu-dynamic-head" src="images/media_1789147379173.png" class="absolute -top-20 left-1/2 -translate-x-1/2 w-40 h-40 sm:w-44 sm:h-44 object-contain z-20" alt="Pulu Head" />
+                </div>
+                <!-- Small Street Tag Below Face -->
+                <span
+                  class="inline-block mt-space-xs font-label-sm text-label-sm uppercase tracking-widest bg-secondary text-on-secondary px-space-xs py-0.5 shadow-sm transform -rotate-2"
+                >
+                  LVL 99 BULLSHIT DETECTOR
+                </span>
+              </div>
+              <!-- Typography Hero Stack -->
+              <div class="flex flex-col items-center max-w-xl">
+                <!-- Meta Hackathon Pill -->
+                <div
+                  class="mb-space-xs inline-flex items-center gap-1.5 px-space-md py-0.5 bg-surface-container text-tertiary shadow-sm font-label-lg text-label-lg uppercase"
+                >
+                  <span class="material-symbols-outlined text-[14px]"
+                    >terminal</span
+                  >
+                  USELESS PROJECTS TECH-FEST // THALLU ENGINE v0.69
+                </div>
+                <!-- Big Punchy Display Anton Headline -->
+                <h1
+                  class="font-display-hero text-[56px] leading-[60px] md:text-[80px] md:leading-[80px] text-on-surface uppercase tracking-wide drop-shadow-[0_4px_12px_rgba(0,0,0,0.8)]"
+                >
+                  JALIAN KANARAN
+                </h1>
+                <!-- Ripped Street Slap Sticker Tagline -->
+                <div
+                  class="relative -mt-2 bg-primary-container text-on-primary font-title-lg text-title-lg px-space-lg py-1 shadow-xl transform rotate-1"
+                >
+                  <span class="relative z-10 tracking-tight uppercase"
+                    >ENTH VENELUM CHODICHO. ORU THENGAYUM KITTILLA.</span
+                  >
+                </div>
+                <p
+                  class="mt-space-md text-on-surface-variant font-body-lg text-body-lg max-w-md mx-auto"
+                >
+                  Ninte aavashyamillatha idea-um, thallipoli startup pitch-um okke ingott edukk. Kozhikodan style-il njan onnu roast cheyyatte. Thallu mode full active aanu mone!
+                </p>
+              </div>
+              <!-- Suggested Prompt Chips (Torn-Paper Pill Aesthetic) -->
+              <div
+                class="w-full max-w-3xl mt-space-lg flex flex-wrap justify-center gap-space-sm sm:gap-space-md px-space-xs"
+              >
+                <!-- Prompt Chip 1 -->
+                <button
+                  class="prompt-chip group relative text-left bg-surface-container text-on-surface hover:bg-surface-container-high px-space-md py-space-sm shadow-md transition-all duration-150 hover:-translate-y-1 hover:shadow-xl cursor-pointer"
+                  onclick="
+                    fillPrompt(
+                      'Review my groundbreaking Web3 AI resume builder',
+                    )
+                  "
+                  style="
+                    clip-path: polygon(
+                      0% 4px,
+                      4px 0%,
+                      calc(100% - 6px) 0%,
+                      100% 6px,
+                      calc(100% - 2px) calc(100% - 4px),
+                      100% 100%,
+                      6px calc(100% - 1px),
+                      0% calc(100% - 6px)
+                    );
+                  "
+                >
+                  <div class="flex items-center gap-space-xs">
+                    <span class="text-secondary text-base select-none">🔥</span>
+                    <span
+                      class="font-body-md text-body-md font-medium text-on-surface group-hover:text-secondary transition-colors"
+                    >
+                      “Review my groundbreaking Web3 AI resume builder”
+                    </span>
+                  </div>
+                  <div
+                    class="absolute bottom-0 left-0 right-0 h-0.5 bg-primary-container/60 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                  ></div>
+                </button>
+                <!-- Prompt Chip 2 -->
+                <button
+                  class="prompt-chip group relative text-left bg-surface-container text-on-surface hover:bg-surface-container-high px-space-md py-space-sm shadow-md transition-all duration-150 hover:-translate-y-1 hover:shadow-xl cursor-pointer"
+                  onclick="
+                    fillPrompt(
+                      'Why is my Python code throwing indentation error again?',
+                    )
+                  "
+                  style="
+                    clip-path: polygon(
+                      3px 0%,
+                      calc(100% - 4px) 2px,
+                      100% 10px,
+                      calc(100% - 6px) 100%,
+                      8px calc(100% - 3px),
+                      0% calc(100% - 8px)
+                    );
+                  "
+                >
+                  <div class="flex items-center gap-space-xs">
+                    <span class="text-primary text-base select-none">💀</span>
+                    <span
+                      class="font-body-md text-body-md font-medium text-on-surface group-hover:text-primary transition-colors"
+                    >
+                      “Why is my Python code throwing indentation error again?”
+                    </span>
+                  </div>
+                  <div
+                    class="absolute bottom-0 left-0 right-0 h-0.5 bg-secondary/60 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                  ></div>
+                </button>
+                <!-- Prompt Chip 3 -->
+                <button
+                  class="prompt-chip group relative text-left bg-surface-container text-on-surface hover:bg-surface-container-high px-space-md py-space-sm shadow-md transition-all duration-150 hover:-translate-y-1 hover:shadow-xl cursor-pointer"
+                  onclick="
+                    fillPrompt(
+                      'Can you explain quantum physics like I am five lah?',
+                    )
+                  "
+                  style="
+                    clip-path: polygon(
+                      0% 6px,
+                      6px 0%,
+                      100% 0%,
+                      calc(100% - 4px) calc(100% - 6px),
+                      calc(100% - 8px) 100%,
+                      0% 100%
+                    );
+                  "
+                >
+                  <div class="flex items-center gap-space-xs">
+                    <span class="text-tertiary text-base select-none">🚀</span>
+                    <span
+                      class="font-body-md text-body-md font-medium text-on-surface group-hover:text-tertiary transition-colors"
+                    >
+                      “Can you explain quantum physics like I'm five lah?”
+                    </span>
+                  </div>
+                  <div
+                    class="absolute bottom-0 left-0 right-0 h-0.5 bg-tertiary/60 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+                  ></div>
+                </button>
+              </div>
+            </div>
+            <!-- Chat View Container -->
+            <div
+              id="chat-view"
+              style="display:none"
+              class="flex-1 flex-col w-full max-w-4xl mx-auto px-space-xs sm:px-space-md pt-space-lg pb-4 overflow-y-auto gap-space-md relative z-10 scroll-smooth mb-32"
+            >
+              <div id="chat-messages" class="flex flex-col gap-space-md w-full">
+                <!-- Messages injected here via JS -->
+              </div>
+            </div>
+            <!-- Pinned Bottom Interaction Console -->
+            <div
+              class="w-full z-20 sticky bottom-0 pt-space-sm pb-space-xs bg-gradient-to-t from-surface-container-lowest via-surface-container-lowest to-transparent"
+            >
+              <!-- Input Outer Chassis -->
+              <div
+                class="w-full bg-surface-container-low shadow-xl rounded-full p-1.5 sm:p-2 flex items-center justify-between transition-all focus-within:ring-2 focus-within:ring-secondary/70"
+                id="pulu-prompt-container"
+              >
+                <!-- Prefix Icon Sticker -->
+                <div
+                  class="hidden sm:flex items-center justify-center pl-space-sm pr-space-xs text-outline select-none"
+                >
+                  <span class="material-symbols-outlined text-[22px]"
+                    >psychology_alt</span
+                  >
+                </div>
+                <!-- Terminal Styled Pill Input -->
+                <input
+                  autocomplete="off"
+                  class="flex-1 bg-transparent text-on-surface placeholder:text-outline font-body-lg text-body-lg px-space-sm sm:px-space-md py-space-xs focus:outline-none min-w-0"
+                  id="chat-input"
+                  placeholder="Ask something stupid, go ahead..."
+                  type="text"
+                  onkeydown="if(event.key === 'Enter'){ handleSend(); }"
+                />
+                <!-- Action Tray: Quick Mode Indicators & Circular Send Button -->
+                <div class="flex items-center gap-space-xs pr-1">
+                  <!-- Voice/Audio Troll Toggle Dummy -->
+                  <button
+                    class="hidden md:flex items-center justify-center w-10 h-10 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors"
+                    onclick="triggerTrollSound()"
+                    title="Enable Sound Toxicity"
+                    type="button"
+                  >
+                    <span class="material-symbols-outlined text-[20px]"
+                      >volume_up</span
+                    >
+                  </button>
+                  <!-- Circular Send Button -->
+                  <button
+                    class="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center shadow-lg transition-transform active:brightness-90 hover:scale-105 cursor-pointer"
+                    id="send-btn"
+                    type="button"
+                    onclick="handleSend()"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[24px] font-bold"
+                      >arrow_upward</span
+                    >
+                    <!-- Peel Graphic Corner Dot -->
+                    <span
+                      class="absolute top-1 right-1 w-2 h-2 rounded-full bg-surface-container-lowest"
+                    ></span>
+                  </button>
+                </div>
+              </div>
+              <!-- Legal & Tone Micro-copy -->
+              <div
+                class="flex flex-col sm:flex-row items-center justify-between px-space-md pt-space-xs gap-1 text-center sm:text-left"
+              >
+                <p
+                  class="font-label-sm text-label-sm text-outline tracking-tight"
+                >
+                  Warning: Pulu is legally not liable for emotional damage.
+                  Manglish enabled by default.
+                </p>
+                <div
+                  class="flex items-center gap-space-sm text-outline-variant font-label-sm text-label-sm"
+                >
+                  <span class="inline-flex items-center gap-1">
+                    <span
+                      class="w-1.5 h-1.5 rounded-full bg-primary-container"
+                    ></span>
+                    LATENCY: 12ms (INSTANT DISRESPECT)
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Client-side Interactive Behaviors & Keyframes -->
+          <script>
+            // Routing & State
+            const homeView = document.getElementById("home-view");
+            const chatView = document.getElementById("chat-view");
+            const chatMessages = document.getElementById("chat-messages");
+            const input = document.getElementById("chat-input");
+            const sendBtn = document.getElementById("send-btn");
+
+            // Animation Definitions Injected Dynamically
+            if (!document.getElementById("pulu-keyframes")) {
+              const style = document.createElement("style");
+              style.id = "pulu-keyframes";
+              style.innerHTML = `
+        @keyframes puluFloat {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-8px) rotate(-1deg); }
+        }
+        @keyframes puluBlink {
+          0%, 94%, 100% { transform: scaleY(1); }
+          96% { transform: scaleY(0.08); }
+        }
+        .msg-pulu {
+          clip-path: polygon(0px 0px, 5% 0px, 15% 4px, 30% 0px, 45% 4px, 60% 0px, 75% 4px, 90% 0px, 95% 0px, 100% 0px, 100% 5%, calc(100% - 4px) 15%, 100% 30%, calc(100% - 4px) 45%, 100% 60%, calc(100% - 4px) 75%, 100% 90%, 100% 95%, 100% 100%, 95% 100%, 80% calc(100% - 4px), 65% 100%, 50% calc(100% - 4px), 35% 100%, 20% calc(100% - 4px), 5% 100%, 0px 100%, 0px 95%, 4px 80%, 0px 65%, 4px 50%, 0px 35%, 4px 20%, 0px 5%);
+        }
+        .msg-safe {
+          clip-path: none !important;
+          border-radius: 14px 14px 14px 2px !important;
+        }
+      `;
+              document.head.appendChild(style);
+            }
+
+            function showChatView() {
+              homeView.style.display = 'none';
+              chatView.style.display = 'flex';
+            }
+
+            // LocalStorage History
+            const historyNav = document.getElementById('history-nav');
+            const historyCount = document.getElementById('history-count');
+            let sessions = JSON.parse(localStorage.getItem('pulu_sessions') || '[]');
+            let currentSessionId = null;
+
+            function saveSession(userMsg, puluMsg) {
+              if (!currentSessionId) {
+                currentSessionId = Date.now().toString();
+                sessions.unshift({ id: currentSessionId, title: userMsg.substring(0, 30) + '...', date: new Date().toISOString(), messages: [] });
+              }
+              const session = sessions.find(s => s.id === currentSessionId);
+              if (session) {
+                session.messages.push({ role: 'user', content: userMsg });
+                session.messages.push({ role: 'pulu', content: puluMsg });
+                localStorage.setItem('pulu_sessions', JSON.stringify(sessions));
+                renderHistory();
+              }
+            }
+
+            function renderHistory() {
+              if (!historyNav || !historyCount) return;
+              historyNav.innerHTML = '';
+              historyCount.textContent = `${sessions.length} SESSIONS`;
+              
+              sessions.forEach(session => {
+                const a = document.createElement('a');
+                const isActive = session.id === currentSessionId;
+                a.className = isActive 
+                  ? "group flex items-center justify-between p-space-sm transition-all shadow-[2px_2px_0px_#000000] bg-surface-container-high text-on-surface border-l-4 border-secondary cursor-pointer"
+                  : "group flex items-center justify-between p-space-sm bg-surface-container-lowest text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-all border border-surface-container-high shadow-[2px_2px_0px_#000000] cursor-pointer";
+                
+                a.onclick = (e) => {
+                  e.preventDefault();
+                  loadSession(session.id);
+                };
+
+                const dateStr = new Date(session.date).toLocaleDateString();
+                
+                a.innerHTML = `
+                  <div class="flex flex-col truncate pr-space-xs">
+                    <span class="font-title-md text-title-md truncate text-on-surface group-hover:text-secondary transition-colors">${session.title}</span>
+                    <span class="font-label-sm text-label-sm text-outline">${dateStr} • Manglish</span>
+                  </div>
+                  <span class="material-symbols-outlined text-outline-variant hover:text-error text-[18px] delete-btn" data-id="${session.id}">delete</span>
+                `;
+                historyNav.appendChild(a);
+              });
+
+              // Handle delete
+              document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.onclick = (e) => {
+                  e.stopPropagation();
+                  const id = e.target.getAttribute('data-id');
+                  sessions = sessions.filter(s => s.id !== id);
+                  localStorage.setItem('pulu_sessions', JSON.stringify(sessions));
+                  if (currentSessionId === id) {
+                    currentSessionId = null;
+                    showHomeView();
+                  }
+                  renderHistory();
+                };
+              });
+            }
+
+            function loadSession(id) {
+              const session = sessions.find(s => s.id === id);
+              if (!session) return;
+              currentSessionId = id;
+              showChatView();
+              chatMessages.innerHTML = '';
+              session.messages.forEach(m => {
+                addMessage(m.content, m.role, false);
+              });
+              renderHistory();
+            }
+
+            // Initial render
+            renderHistory();
+
+            function showHomeView() {
+              currentSessionId = null;
+              chatView.style.display = 'none';
+              homeView.style.display = '';
+              chatMessages.innerHTML = '';
+              input.value = '';
+              renderHistory();
+            }
+
+            // Populate suggested prompt into input bar and send
+            function fillPrompt(text) {
+              input.value = text;
+              input.focus();
+              // Auto submit
+              handleSend();
+            }
+
+            // Handle new roast buttons
+            document
+              .querySelectorAll('[data-path="chat-arena"]')
+              .forEach((el) => {
+                el.addEventListener("click", (e) => {
+                  e.preventDefault();
+                  showHomeView();
+                });
+              });
+
+            function addMessage(text, sender, safeMode = false) {
+              const div = document.createElement("div");
+
+              if (sender === "user") {
+                div.className =
+                  "self-end bg-surface-container-high text-on-surface border-2 border-surface-container-highest shadow-[2px_2px_0px_#000000] px-space-md py-space-sm font-body-lg text-body-lg max-w-[85%] sm:max-w-[75%]";
+                div.style.borderRadius = "14px 14px 2px 14px";
+                div.textContent = text;
+              } else {
+                div.className =
+                  "self-start bg-secondary text-on-secondary px-6 py-4 font-body-lg text-body-lg max-w-[90%] sm:max-w-[80%] " +
+                  (safeMode
+                    ? "msg-safe border-2 border-secondary"
+                    : "msg-pulu shadow-[2px_2px_0px_#000000]");
+                div.style.borderRadius = "2px 14px 14px 14px";
+                // Simple markdown parser for Pulu's long responses
+                let formattedText = text
+                  .replace(/&/g, "&amp;")
+                  .replace(/</g, "&lt;")
+                  .replace(/>/g, "&gt;")
+                  .replace(/^### (.*?)$/gm, '<h3 class="font-bold text-lg mt-2 mb-1">$1</h3>')
+                  .replace(/^## (.*?)$/gm, '<h2 class="font-bold text-xl mt-3 mb-2">$1</h2>')
+                  .replace(/^# (.*?)$/gm, '<h1 class="font-bold text-2xl mt-4 mb-2">$1</h1>')
+                  .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') // Bold
+                  .replace(/\*(.*?)\*/g, '<em>$1</em>')             // Italic
+                  .replace(/\n/g, '<br>');                          // Newlines
+                div.innerHTML = formattedText;
+              }
+
+              chatMessages.appendChild(div);
+
+              // scroll to bottom
+              if (chatView && chatView.scrollTo) {
+                chatView.scrollTo({
+                  top: chatView.scrollHeight,
+                  behavior: "smooth",
+                });
+              }
+              return div;
+            }
+
+            function addTypingIndicator() {
+              const div = document.createElement("div");
+              div.className =
+                "self-start text-on-surface-variant font-body-md italic py-space-sm";
+              div.id = "typingIndicator";
+              div.textContent = "Pulu is crafting an insult, chill lah...";
+              chatMessages.appendChild(div);
+              if (chatView && chatView.scrollTo) {
+                chatView.scrollTo({
+                  top: chatView.scrollHeight,
+                  behavior: "smooth",
+                });
+              }
+            }
+
+            function removeTypingIndicator() {
+              const el = document.getElementById("typingIndicator");
+              if (el) el.remove();
+            }
+
+            async function handleSend() {
+              console.log('[DEBUG] handleSend called');
+              const val = input.value.trim();
+              console.log('[DEBUG] input value:', val);
+              if (!val) { console.log('[DEBUG] empty input, returning'); return; }
+
+              console.log('[DEBUG] switching to chat view...');
+              showChatView();
+
+              addMessage(val, 'user');
+              input.value = '';
+              
+              sendBtn.disabled = true;
+              sendBtn.classList.add('opacity-50', 'cursor-not-allowed');
+              addTypingIndicator();
+
+              let historyPayload = [];
+              if (currentSessionId) {
+                const session = sessions.find(s => s.id === currentSessionId);
+                if (session && session.messages) {
+                  historyPayload = session.messages.slice(-10);
+                }
+              }
+
+              try {
+                const res = await fetch('/api/troll', {
+                  method: 'POST',
+                  headers: { 'Content-Type': 'application/json' },
+                  body: JSON.stringify({ message: val, history: historyPayload }),
+                });
+                const data = await res.json();
+                removeTypingIndicator();
+
+                if (!res.ok) {
+                  addMessage(data.error || "Pulu broke. Try again.", 'pulu', true);
+                } else {
+                  addMessage(data.reply, 'pulu', !!data.safeMode);
+                  saveSession(val, data.reply);
+                }
+              } catch (err) {
+                removeTypingIndicator();
+                addMessage("Pulu's internet is as unreliable as your plans. Try again.", 'pulu', true);
+              } finally {
+                sendBtn.disabled = false;
+                sendBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                input.focus();
+              }
+            }
+
+            // Easter egg toggle for savage mode
+            let savagePercent = 100;
+            const easterEggBtn = document.getElementById("easter-egg-btn");
+            const savageStatus = document.getElementById("savage-status");
+
+            if (easterEggBtn && savageStatus) {
+              easterEggBtn.addEventListener("click", () => {
+                savagePercent = savagePercent >= 200 ? 100 : savagePercent + 25;
+                savageStatus.innerText = savagePercent + "%";
+                if (savagePercent > 150) {
+                  savageStatus.classList.remove("text-secondary");
+                  savageStatus.classList.add("text-primary");
+                } else {
+                  savageStatus.classList.add("text-secondary");
+                  savageStatus.classList.remove("text-primary");
+                }
+              });
+            }
+
+            function triggerTrollSound() {
+              if (input) {
+                const oldPlaceholder = input.placeholder;
+                input.placeholder = "*LOUD SIGH* Aiyo, what now?";
+                setTimeout(() => {
+                  input.placeholder = oldPlaceholder;
+                }, 2000);
+              }
+            }
+
+            // Dynamic Head Switcher
+            const headImages = [
+              "images/media_1789147379173.png",
+              "images/media_1789147379218.png",
+              "images/media_1789147379247.png",
+              "images/media_1789147379260.png",
+              "images/media_1789154005283.png"
+            ];
+            let currentHead = 0;
+            const headEl = document.getElementById('pulu-dynamic-head');
+            if (headEl) {
+              setInterval(() => {
+                currentHead = (currentHead + 1) % headImages.length;
+                headEl.src = headImages[currentHead];
+              }, 400);
+            }
+
+            // Expose critical functions globally to guarantee inline handlers find them
+            window.handleSend = handleSend;
+            window.fillPrompt = fillPrompt;
+            window.showHomeView = showHomeView;
+            window.triggerTrollSound = triggerTrollSound;
+          </script>
+        </div>
+      </main>
+    </div>
+    <!-- ENTRY FLOW SCREENS -->
+    <audio id="pulu-audio" src="audio/loading.mpeg" preload="auto"></audio>
+
+    <div id="disclaimer-screen" class="fixed inset-0 z-[200] bg-surface-container-lowest flex flex-col items-center justify-center p-space-md text-center">
+      <div class="max-w-md border-2 border-surface-container-highest shadow-[4px_4px_0px_#000000] bg-surface-container-high p-space-lg relative">
+        <h1 class="font-headline-lg text-headline-lg text-primary uppercase mb-space-sm">WARNING</h1>
+        <p class="font-body-md text-on-surface-variant mb-space-md">
+          This bot operates at Maximum Toxicity. It uses heavy sarcasm, Malayalam movie dialogues, and might emotionally damage you. Proceed at your own risk.
+        </p>
+        <button id="disclaimer-go-btn" class="bg-secondary text-on-secondary font-title-lg text-title-lg uppercase px-space-lg py-space-sm border-2 border-on-secondary shadow-[4px_4px_0px_#000000] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all cursor-pointer">
+          GO
+        </button>
+      </div>
+    </div>
+
+    <div id="loading-screen" class="fixed inset-0 z-[150] bg-surface-container-lowest/90 backdrop-blur-md hidden flex-col items-center justify-center">
+      <div class="relative w-96 h-96 sm:w-[36rem] sm:h-[36rem] animate-[puluFloat_1s_ease-in-out_infinite] flex items-center justify-center">
+        <img id="loading-dynamic-head" src="images/media_1789147379173.png" class="w-full h-full object-contain z-20 transition-all duration-75" alt="Pulu Head" />
+      </div>
+      <div class="mt-space-xl inline-flex items-center gap-space-sm bg-surface-container-high px-space-md py-2 border-2 border-surface-container-highest shadow-[2px_2px_0px_#000000]">
+        <span class="w-3 h-3 rounded-full bg-primary-container animate-ping"></span>
+        <span class="font-label-lg text-label-lg uppercase tracking-widest text-on-surface">Jalian കണാരൻ IS WAKING UP...</span>
+      </div>
+    </div>
+
+    <script>
+       const disclaimerScreen = document.getElementById('disclaimer-screen');
+       const disclaimerGoBtn = document.getElementById('disclaimer-go-btn');
+       const loadingScreen = document.getElementById('loading-screen');
+       const loadingHeadEl = document.getElementById('loading-dynamic-head');
+       const puluAudio = document.getElementById('pulu-audio');
+       
+       let fastHeadInterval;
+
+       disclaimerGoBtn.addEventListener('click', () => {
+         disclaimerScreen.classList.add('hidden');
+         disclaimerScreen.classList.remove('flex');
+         
+         loadingScreen.classList.remove('hidden');
+         loadingScreen.classList.add('flex');
+
+         puluAudio.play();
+
+         let loadHeadIdx = 0;
+         fastHeadInterval = setInterval(() => {
+           loadHeadIdx = (loadHeadIdx + 1) % headImages.length;
+           loadingHeadEl.src = headImages[loadHeadIdx];
+         }, 150);
+       });
+
+       puluAudio.addEventListener('ended', () => {
+         clearInterval(fastHeadInterval);
+         
+         const mainHead = document.getElementById('pulu-dynamic-head');
+         if (!mainHead) {
+           loadingScreen.classList.add('hidden');
+           loadingScreen.classList.remove('flex');
+           return;
+         }
+
+         const targetRect = mainHead.getBoundingClientRect();
+         const startRect = loadingHeadEl.getBoundingClientRect();
+         
+         loadingScreen.style.transition = 'background-color 1s ease, backdrop-filter 1s ease';
+         loadingScreen.style.backgroundColor = 'transparent';
+         loadingScreen.style.backdropFilter = 'blur(0px)';
+         const textPill = loadingScreen.querySelector('.mt-space-xl');
+         if (textPill) {
+           textPill.style.transition = 'opacity 0.5s ease';
+           textPill.style.opacity = '0';
+         }
+
+         // Disable any existing transitions immediately to prevent jumping
+         loadingHeadEl.style.transition = 'none';
+         loadingHeadEl.classList.remove('transition-all', 'duration-75');
+         
+         // Lock head to fixed absolute position exactly where it is on screen
+         loadingHeadEl.style.position = 'fixed';
+         loadingHeadEl.style.margin = '0';
+         loadingHeadEl.style.left = startRect.left + 'px';
+         loadingHeadEl.style.top = startRect.top + 'px';
+         loadingHeadEl.style.width = startRect.width + 'px';
+         loadingHeadEl.style.height = startRect.height + 'px';
+         loadingHeadEl.style.transform = 'none'; 
+         
+         loadingHeadEl.parentElement.classList.remove('animate-[puluFloat_1s_ease-in-out_infinite]');
+
+         // Force reflow
+         loadingHeadEl.getBoundingClientRect();
+
+         // Animate to target
+         loadingHeadEl.style.transition = 'all 1.2s cubic-bezier(0.4, 0, 0.2, 1)';
+         loadingHeadEl.style.left = targetRect.left + 'px';
+         loadingHeadEl.style.top = targetRect.top + 'px';
+         loadingHeadEl.style.width = targetRect.width + 'px';
+         loadingHeadEl.style.height = targetRect.height + 'px';
+
+         // Cleanup after animation completes
+         setTimeout(() => {
+           loadingScreen.classList.add('hidden');
+           loadingScreen.classList.remove('flex');
+           loadingHeadEl.style = '';
+           loadingScreen.style = '';
+           if (textPill) textPill.style = '';
+           loadingHeadEl.classList.add('transition-all', 'duration-75');
+           loadingHeadEl.parentElement.classList.add('animate-[puluFloat_1s_ease-in-out_infinite]');
+         }, 1200);
+       });
+    </script>
+  </body>
+</html>
